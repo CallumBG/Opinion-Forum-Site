@@ -23,10 +23,7 @@
                 @Html.DisplayNameFor(model => model.Opinion[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Opinion[0].Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Opinion[0].OpinionText)
+                Poster
             </th>
             <th></th>
         </tr>
@@ -39,9 +36,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpinionText)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
