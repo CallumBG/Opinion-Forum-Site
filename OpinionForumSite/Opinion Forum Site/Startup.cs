@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +34,9 @@ namespace Opinion_Forum_Site
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+
+            services.AddDbContext<Opinion_Forum_SiteContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Opinion_Forum_SiteContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
