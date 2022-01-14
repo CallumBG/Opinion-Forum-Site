@@ -39,7 +39,11 @@
         </dl>
     </div>
     <div>
-        <a asp-page="./Edit" asp-route-id="@Model.Opinion.ID">Edit</a> |
+        @if(Equals(Model.Opinion.Username, User.Identity.Name))
+        {
+            <a asp-page="./Edit" asp-route-id="@Model.Opinion.ID">Edit</a>
+            <a> | </a>
+        }
         <a asp-page="./Index">Back to List</a>
     </div>
 </body>

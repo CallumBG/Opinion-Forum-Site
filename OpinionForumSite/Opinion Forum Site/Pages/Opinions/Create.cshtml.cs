@@ -30,6 +30,7 @@ namespace Opinion_Forum_Site.Pages.Opinions
         public Opinion Opinion { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+       
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -37,6 +38,7 @@ namespace Opinion_Forum_Site.Pages.Opinions
                 return Page();
             }
 
+            Opinion.Username = User.Identity.Name;
             _context.Opinion.Add(Opinion);
             await _context.SaveChangesAsync();
 
