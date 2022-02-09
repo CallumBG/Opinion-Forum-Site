@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Opinion_Forum_Site.Data;
 using Opinion_Forum_Site.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Opinion_Forum_Site.Pages.Opinions
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly Opinion_Forum_Site.Data.Opinion_Forum_SiteContext _context;
@@ -48,7 +50,9 @@ namespace Opinion_Forum_Site.Pages.Opinions
                 return Page();
             }
 
+            Opinion.Username = User.Identity.Name;
             _context.Attach(Opinion).State = EntityState.Modified;
+
 
             try
             {

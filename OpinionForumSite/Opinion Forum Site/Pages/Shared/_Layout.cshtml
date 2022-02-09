@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -22,16 +22,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Opinions/Index">All Posts </a>
+                            <a class="nav-link text-dark" id="all-posts" asp-area="" asp-page="/Opinions/Index">All Posts </a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Opinions/ViewUserPosts">Your Posts </a>
+                                <a class="nav-link text-dark" id="your-posts-link" asp-area="" asp-page="/Opinions/ViewUserPosts">Your Posts </a>
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" id="create-post-link" asp-area="" asp-page="/Opinions/Create">Create A Post</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -47,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Opinion_Forum_Site - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <a id="back-to-home-link" asp-area="" asp-page="/Index">Back To Home</a>
         </div>
     </footer>
 

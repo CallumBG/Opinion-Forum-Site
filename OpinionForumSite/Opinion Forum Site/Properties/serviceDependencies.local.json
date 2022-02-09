@@ -1,12 +1,19 @@
 {
   "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DefaultConnection"
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/opinion-forum-sitedbserver/databases/Opinion_Forum_SiteContext",
+      "type": "mssql.azure",
+      "connectionId": "Opinion_Forum_SiteContext"
     },
     "mssql2": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:Opinion_Forum_SiteContext"
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/opinion-forum-sitedbserver/databases/ApplicationDbContext",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection"
     }
   }
 }

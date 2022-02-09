@@ -2,11 +2,15 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:DefaultConnection"
+      "connectionId": "Opinion_Forum_SiteContext"
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:Opinion_Forum_SiteContext"
+      "connectionId": "DefaultConnection"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "VaultUri"
     }
   }
 }

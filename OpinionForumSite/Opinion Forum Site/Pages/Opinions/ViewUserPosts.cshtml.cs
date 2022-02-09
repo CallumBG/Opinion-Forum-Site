@@ -25,5 +25,13 @@ namespace Opinion_Forum_Site.Pages.Opinions
         {
             Opinion = await _context.Opinion.ToListAsync();
         }
+
+        // POST: Opinion/ShowSearchResults
+
+        public async Task<IActionResult> OnPostAsync(string SearchPhrase)
+        {
+            Opinion = await _context.Opinion.Where(j => j.Title.Contains(SearchPhrase)).ToListAsync();
+            return Page();
+        }
     }
 }

@@ -15,25 +15,25 @@
 <body>
 
     <div>
-        <h4>Opinion</h4>
+        <h4 class="page-title">Opinion</h4>
         <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Opinion.Title)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Opinion.Title)
-            </dd>
+        <dl class="row opinion-info-sections">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Opinion.Username)
             </dt>
-            <dd class="col-sm-10">
+            <dd class="col-sm-10 opinion-info-name">
                 @Html.DisplayFor(model => model.Opinion.Username)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Opinion.OpinionText)
+             <dt class="col-sm-2">
+                <a>Topic</a>
             </dt>
-            <dd class="col-sm-10">
+            <dd class="col-sm-10 opinion-info-title">
+                @Html.DisplayFor(model => model.Opinion.Title)
+            </dd>
+            <dt class="col-sm-2">
+                <a>Opinion</a>
+            </dt>
+            <dd class="col-sm-10 opinion-info-text">
                 @Html.DisplayFor(model => model.Opinion.OpinionText)
             </dd>
         </dl>
@@ -41,10 +41,10 @@
     <div>
         @if(Equals(Model.Opinion.Username, User.Identity.Name))
         {
-            <a asp-page="./Edit" asp-route-id="@Model.Opinion.ID">Edit</a>
-            <a> | </a>
+            <a class="standard-link" asp-page="./Edit" asp-route-id="@Model.Opinion.ID">Edit</a>
+            <a class="divider"> | </a>
         }
-        <a asp-page="./Index">Back to List</a>
+        <a class="standard-link" asp-page="./Index">Back To All Posts</a>
     </div>
 </body>
 </html>
